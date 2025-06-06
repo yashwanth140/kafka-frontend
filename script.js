@@ -1,22 +1,25 @@
-async function fetchTelemetry() {
-  const blobUrl = "https://sotelemetrystorage.blob.core.windows.net/telemetrydata/latest.json";
+const telemetryBox = document.getElementById("telemetry");
+const blobUrl = "https://sotelemetrystorage.blob.core.windows.net/telemetrydata/latest.json";
 
+async function fetchTelemetry() {
   try {
     const response = await fetch(blobUrl);
-    if (!response.ok) throw new Error("Failed to fetch");
-
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    document.getElementById("telemetry").innerHTML = `
+
+    telemetryBox.innerHTML = `
       <p><strong>Device:</strong> ${data.deviceId}</p>
       <p><strong>Temperature:</strong> ${data.temperature} °C</p>
       <p><strong>Humidity:</strong> ${data.humidity}%</p>
       <p><strong>Timestamp:</strong> ${data.timestamp}</p>
     `;
-  } catch (error) {
-    document.getElementById("telemetry").innerHTML = `<p style="color:red;">⚠️ Error fetching data: ${error.message}</p>`;
+    telemetryBox.classList.add("fade-in");
+    setTimeout(() => telemetryBox.classList.remove("fade-in"), 500);
+  } catch (err) {
+    telemetryBox.innerHTML = `<p class="error">⚠️ Error fetching data: ${err.message}</p>`;
   }
 }
 
-// Poll every 30s
+// Load initially and then refresh every 5 minutes (300000 ms)
 fetchTelemetry();
-setInterval(fetchTelemetry, 30000);
+setInterval(fetchTelemetry, 300000);
