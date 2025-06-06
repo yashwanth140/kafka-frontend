@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f5f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,39 +10,50 @@ body {
 }
 
 .container {
-  background-color: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-  text-align: center;
+  background-color: white;
+  padding: 2.5rem 3rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
   max-width: 480px;
-  width: 100%;
+  text-align: center;
 }
 
 h1 {
-  margin-bottom: 1.5rem;
   color: #1f2937;
+  font-size: 1.6rem;
+  margin-bottom: 1.75rem;
 }
 
 .telemetry-box {
+  text-align: left;
+  padding: 1.5rem;
+  border-radius: 12px;
   background-color: #f9fafb;
-  border: 2px dashed #cbd5e1;
-  padding: 1.25rem;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
+  border: 1px solid #e5e7eb;
 }
 
-.telemetry-box.fade-in {
-  animation: fadeIn 0.4s ease-in-out;
+.data-entry {
+  margin-bottom: 0.8rem;
+  font-size: 1.05rem;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+  margin-right: 0.3rem;
 }
 
 .error {
-  color: red;
+  color: #dc2626;
   font-weight: bold;
-  margin-top: 1rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0.2; transform: scale(0.98); }
+  from { opacity: 0.4; transform: scale(0.97); }
   to   { opacity: 1;   transform: scale(1); }
 }
