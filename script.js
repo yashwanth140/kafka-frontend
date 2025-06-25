@@ -14,7 +14,6 @@ async function fetchTelemetry() {
       <div class="data-entry"><span class="label">📟 Device:</span> ${data.deviceId}</div>
       <div class="data-entry"><span class="label">🌡 Temperature:</span> ${data.temperature} °C</div>
       <div class="data-entry"><span class="label">💧 Humidity:</span> ${data.humidity}%</div>
-      <div class="data-entry"><span class="label">🔋 Battery:</span> ${data.battery ?? '--'}%</div>
       <div class="data-entry"><span class="label">🟢 Status:</span> ${data.status ?? '--'}</div>
       <div class="data-entry"><span class="label">⏰ Timestamp:</span> ${localTime}</div>
     `;
